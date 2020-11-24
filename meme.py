@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 import json
 import sys
+import os
 from PIL import ImageDraw, Image, ImageFont
 
-with open("memes.json") as f:
+CURR_DIR = os.path.dirname(os.path.realpath(__file__))
+with open(CURR_DIR + "/memes.json") as f:
     memes = json.load(f)
     memes_by_id = {}
     for filename, meme in memes.items():
         meme["filename"] = filename
         memes_by_id[meme["identifier"]] = meme
 
-def create_meme(font_path, meme_id, texts, filepath):
+font_path = CURR_DIR + "/fonts/Roboto/Roboto-Regular.ttf"
+
+def create_meme(meme_id, texts, filepath):
     meme = memes_by_id[meme_id]
     img = Image.open("images/" + meme["filename"])
     draw = ImageDraw.Draw(img)
@@ -31,5 +35,4 @@ if __name__ == "__main__":
         print("where <meme-name> is one of")
         print([*memes_by_id.keys()])
     else:
-        font_path = "./fonts/Roboto/Roboto-Regular.ttf"
-        create_meme(font_path, sys.argv[1], sys.argv[2:-1], sys.argv[-1])
+        create_meme(sys.argv[1], sys.argv[2:-1], sys.argv[-1])
