@@ -16,7 +16,7 @@ font_path = CURR_DIR + "/fonts/Roboto/Roboto-Regular.ttf"
 
 def create_meme(meme_id, texts, filepath):
     meme = memes_by_id[meme_id]
-    img = Image.open("images/" + meme["filename"])
+    img = Image.open(CURR_DIR + "/images/" + meme["filename"])
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype(font_path, 16)
     text_points = meme["text_points"]
