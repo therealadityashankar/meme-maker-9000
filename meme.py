@@ -10,7 +10,7 @@ with open("memes.json") as f:
         meme["filename"] = filename
         memes_by_id[meme["identifier"]] = meme
 
-def create_meme(font_path, meme_id, *texts, filepath):
+def create_meme(font_path, meme_id, texts, filepath):
     meme = memes_by_id[meme_id]
     img = Image.open("images/" + meme["filename"])
     draw = ImageDraw.Draw(img)
@@ -32,4 +32,4 @@ if __name__ == "__main__":
         print([*memes_by_id.keys()])
     else:
         font_path = "./fonts/Roboto/Roboto-Regular.ttf"
-        create_meme(font_path, sys.argv[1], *sys.argv[2:-1], filepath=sys.argv[-1])
+        create_meme(font_path, sys.argv[1], sys.argv[2:-1], sys.argv[-1])
