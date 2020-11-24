@@ -19,7 +19,7 @@ with open("./meme-samples.md", "w") as f:
     f.write("samples for the provided memeing options\n")
     f.write("\n\n\n")
     for i, (filename, meme) in enumerate(memes.items()):
-        f.write(f"## {i + 1} : {meme['identifier']}\n")
+        f.write(f"## {i + 1} : {meme['identifier']}\n\n")
         f.write(f"![{meme['identifier']} sample](./samples/sample-{filename})\n")
         f.write(f"![{meme['identifier']} sample](./samples/sample-longtext-{filename})\n\n\n<br>\n")
 
