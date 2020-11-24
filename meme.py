@@ -18,7 +18,9 @@ def create_meme(meme_id, texts, filepath):
     meme = memes_by_id[meme_id]
     img = Image.open(CURR_DIR + "/images/" + meme["filename"])
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype(font_path, 16)
+    font_size = 25
+    if "font_size" in meme: font_size = meme["font_size"]
+    font = ImageFont.truetype(font_path, font_size)
     text_points = meme["text_points"]
     assert len(texts) == len(text_points), f"number of points required {len(text_points)} does not match up with the number of text inputs provided, please give the exact number of text inputs"
 
