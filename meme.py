@@ -35,7 +35,7 @@ def create_meme(meme_id, texts, filepath):
         broken_text = ""
         for i, char in enumerate(text):
             if i%max_chars_per_line == 0 and i != 0:
-                broken_text += "-\n"
+                broken_text += "\n"
             broken_text += char
         tb = draw.multiline_textbbox(point, broken_text, font=font, anchor="mm")
         draw.rectangle(tb, "white")

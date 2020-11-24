@@ -254,6 +254,8 @@ The-Scroll-Of-Truth.jpg:
   text_points:
   - - 351.9025974025973
     - 873.6623376623377
+  char_limits:
+    - 16
 They're-The-Same-Picture.jpg:
   identifier: They're-The-Same-Picture
   text_points:
@@ -292,6 +294,9 @@ Waiting-Skeleton.jpg:
     - 81.71374458874453
   - - 151.77110389610397
     - 337.95021645021643
+  char_limits:
+    - 23
+    - 23
 Who-Killed-Hannibal.jpg:
   font_size: 100
   identifier: Who-Killed-Hannibal
@@ -300,6 +305,9 @@ Who-Killed-Hannibal.jpg:
     - 593.2662337662337
   - - 612.2272727272727
     - 1333.525974025974
+  char_limits:
+      - 20
+      - 20
 Woman-Yelling-At-Cat.jpg:
   identifier: Woman-Yelling-At-Cat
   text_points:
@@ -307,6 +315,9 @@ Woman-Yelling-At-Cat.jpg:
     - 46.58064516129036
   - - 513.6129032258065
     - 46.58064516129036
+  char_limits:
+      - 20
+      - 20
 X-X-Everywhere.jpg:
   font_size: 200
   identifier: X-X-Everywhere
