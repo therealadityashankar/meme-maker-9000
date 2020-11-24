@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-import json
 import sys
+import yaml
 import os
 from PIL import ImageDraw, Image, ImageFont
 
 CURR_DIR = os.path.dirname(os.path.realpath(__file__))
-with open(CURR_DIR + "/memes.json") as f:
-    memes = json.load(f)
+with open(CURR_DIR + "/memes.yaml") as f:
+    memes = yaml.safe_load(f)
     memes_by_id = {}
     for filename, meme in memes.items():
         meme["filename"] = filename
@@ -19,16 +19,27 @@ def create_meme(meme_id, texts, filepath):
     img = Image.open(CURR_DIR + "/images/" + meme["filename"])
     draw = ImageDraw.Draw(img)
     font_size = 25
+
     if "font_size" in meme: font_size = meme["font_size"]
+
     font = ImageFont.truetype(font_path, font_size)
     text_points = meme["text_points"]
     assert len(texts) == len(text_points), f"number of points required {len(text_points)} does not match up with the number of text inputs provided, please give the exact number of text inputs"
+    char_limits = [35]*len(text_points)
 
-    for text, point in zip(texts, text_points):
+    if "char_limits" in meme:
+        char_limits = meme["char_limits"]
+
+    for text, point, max_chars_per_line in zip(texts, text_points, char_limits):
         fill = (0, 0, 0)
-        tb = draw.textbbox(point, text, font=font, anchor="ms")
+        broken_text = ""
+        for i, char in enumerate(text):
+            if i%max_chars_per_line == 0 and i != 0:
+                broken_text += "-\n"
+            broken_text += char
+        tb = draw.multiline_textbbox(point, broken_text, font=font, anchor="mm")
         draw.rectangle(tb, "white")
-        draw.text(point, text, fill, anchor="ms", font=font)
+        draw.multiline_text(point, broken_text, fill, anchor="mm", font=font)
         img.save(filepath)
 
 if __name__ == "__main__":

@@ -2,14 +2,14 @@
 import os
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimage
-import json
+import yaml
 import time
 
 def main():
     _, _, filenames = next(os.walk("./images"))
 
-    with open("memes.json") as f:
-        memes = json.load(f)
+    with open("memes.yaml") as f:
+        memes = yaml.safe_load(f)
 
     for i, filename in enumerate(filenames):
         print(f"{len(filenames) - i - 1} memes not tagged")
@@ -48,8 +48,8 @@ def main():
                 "text_points": text_points,
         }
 
-        with open("memes.json", "w") as f:
-            json.dump(memes, f, indent=2)
+        with open("memes.yaml", "w") as f:
+            yaml.dump(memes, f)
 
 if __name__ == "__main__":
     main()
