@@ -234,6 +234,7 @@
   },
   "Bernie-I-Am-Once-Again-Asking-For-Your-Support.jpg": {
     "identifier": "Bernie-I-Am-Once-Again-Asking-For-Your-Support",
+    "font_size": 35,
     "text_points": [
       [
         366.38311688311694,
@@ -311,6 +312,7 @@
   },
   "Surprised-Pikachu.jpg": {
     "identifier": "Surprised-Pikachu",
+    "font_size": 100,
     "text_points": [
       [
         951.1190476190474,
@@ -333,6 +335,7 @@
   },
   "Drake-Hotline-Bling.jpg": {
     "identifier": "Drake-Hotline-Bling",
+    "font_size": 50,
     "text_points": [
       [
         885.2142857142857,
@@ -471,6 +474,7 @@
   },
   "X-X-Everywhere.jpg": {
     "identifier": "X-X-Everywhere",
+    "font_size": 200,
     "text_points": [
       [
         1062.7701612903224,
@@ -484,6 +488,7 @@
   },
   "Who-Killed-Hannibal.jpg": {
     "identifier": "Who-Killed-Hannibal",
+    "font_size": 100,
     "text_points": [
       [
         647.2922077922078,
