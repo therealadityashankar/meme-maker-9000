@@ -172,6 +172,7 @@ Hide-the-Pain-Harold.jpg:
     - 569.2792207792209
 Inhaling-Seagull.jpg:
   identifier: Inhaling-Seagull
+  font_size: 100
   text_points:
   - - 626.3566017316014
     - 155.4253246753242
