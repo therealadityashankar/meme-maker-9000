@@ -269,6 +269,8 @@ This-Is-Fine.jpg:
   text_points:
   - - 130.4677419354839
     - 240.59677419354836
+  char_limits:
+    - 20
 Trump-Bill-Signing.jpg:
   identifier: Trump-Bill-Signing
   text_points:

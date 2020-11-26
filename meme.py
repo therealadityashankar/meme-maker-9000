@@ -32,15 +32,25 @@ def create_meme(meme_id, texts, filepath):
 
     for text, point, max_chars_per_line in zip(texts, text_points, char_limits):
         fill = (0, 0, 0)
-        broken_text = ""
-        for i, char in enumerate(text):
-            if i%max_chars_per_line == 0 and i != 0:
-                broken_text += "\n"
-            broken_text += char
+        broken_text = text_refine(text, max_chars_per_line)
         tb = draw.multiline_textbbox(point, broken_text, font=font, anchor="mm")
         draw.rectangle(tb, "white")
         draw.multiline_text(point, broken_text, fill, anchor="mm", font=font)
         img.save(filepath)
+
+def text_refine(text, max_char_len):
+    words = text.split(" ")
+    final_text = ""
+    curr_line = ""
+    for word in words:
+        if len(curr_line + ' ' + word) > max_char_len:
+            final_text += curr_line + "\n"
+            curr_line = word
+        else:
+            curr_line += " " + word
+
+    final_text += curr_line
+    return final_text
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
